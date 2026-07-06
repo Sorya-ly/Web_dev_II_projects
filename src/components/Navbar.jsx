@@ -1,27 +1,32 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 export default function NavBar () {
+    const navigate = useNavigate(); 
+
     return (
         <nav className="navbar">
-            {/* Plain link: no "active" awareness */}
-            <Link to="/">Home (Nested)</Link>
 
-            {/* NavLink: Style/className changes automatically when active */}
-            <NavLink to="/quiz">
-                Quiz
-            </NavLink>
+            <div className="nav-links">
+                {/* Plain link: no "active" awareness */}
+                <Link to="/">Home (Nested)</Link>
 
-            <NavLink to="/result">
-                Result
-            </NavLink>
+                {/* NavLink: Style/className changes automatically when active */}
+                <NavLink to="/quiz" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                    <span className="nav-icon"> </span>Quiz
+                </NavLink>
 
-            <NavLink to="/performanceboard">
-                Performance Board
-            </NavLink>
+                <NavLink to="/result" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                    <span className="nav-icon"> </span>Result
+                </NavLink>
 
-            <NavLink to="/profile">
-                Profile
-            </NavLink>
+                <NavLink to="/performanceboard" className={({ isActive }) => isActive ? "nav-link active": "nav-link"}>
+                    <span className="nav-icon"> </span>Performance Board
+                </NavLink>
+
+                <NavLink to="/profile" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                    <span className="nav-icon"> </span>Profile
+                </NavLink>
+            </div>
         </nav>
     )
 }
