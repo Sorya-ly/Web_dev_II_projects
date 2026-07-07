@@ -6,6 +6,11 @@ export default function NavBar () {
     return (
         <nav className="navbar">
 
+            <div className="nav-brand" onClick={() => navigate("/")}>
+                <span className="brand-icon-small">{"</>"}</span>
+                <span>CodeQuiz</span>
+            </div>
+
             <div className="nav-links">
                 {/* Plain link: no "active" awareness */}
                 <Link to="/">Home (Nested)</Link>
@@ -28,5 +33,5 @@ export default function NavBar () {
                 </NavLink>
             </div>
         </nav>
-    )
+    );
 }
