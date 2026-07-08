@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuiz } from "../context/QuizContext";
-import { useTimer } from ".../hooks/useTimer";
+import { useTimer } from "../hooks/useTimer";
 import { DIFFICULTY_CONFIG, LANGUAGES, TIME_PER_QUESTION, getRandomQuestions } from "../data";
 
 export default function Quiz() {

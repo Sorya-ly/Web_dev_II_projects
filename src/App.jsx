@@ -1,12 +1,12 @@
-import { Routes, Route } from "react-router-dom";
-
-import NavBar from "./components/Navbar";
-
-// import Home from "./pages/Home.jsx";
-// import PerformanceBoard from "./pages/PerformanceBoard.jsx";
-// import Profile from "./pages/Profile.jsx";
-// import Quiz from "./pages/Quiz.jsx";
-// import Result from "./pages/Results.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QuizProvider } from "./context/QuizContext";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Quiz from "./pages/Quiz";
+import Results from "./pages/Results";
+import PerformanceBoard from "./pages/PerformanceBoard";
+import Profile from "./pages/Profile";
+import "./App.css";
 
 export default function App() {
     return (
@@ -21,7 +21,9 @@ export default function App() {
 
                     <Route path="/quiz" element={<Quiz />} />
 
-                    <Route path="/result" element={<Result />} />
+                    <Route path="/result" element={<Results />} />
+
+                    <Route path="/profile" element={<Profile />} />
                 </Routes>
             </main>
 

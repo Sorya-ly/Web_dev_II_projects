@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useQuiz } from ".../context/QuizContext";
+import { useQuiz } from "../context/QuizContext";
 import { LANGUAGES, DIFFICULTY_CONFIG } from "../data";
 
 export default function Home() {
