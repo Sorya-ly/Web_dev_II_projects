@@ -1,4 +1,4 @@
-# 🧠 CodeQuiz — Programming Trivia App
+# DevQuiz — Programming Trivia App
 
 A React quiz application testing knowledge across JavaScript, Python, Java, and HTML/CSS, with streak tracking, a performance leaderboard, and full localStorage persistence.
 
@@ -37,7 +37,7 @@ npm run dev
 ```
 ## Testing 
 ```bash
-npm test #Total 27
+npm test 
 npm test FILE_NAME #Example: npm test useTimer
 ```
 
@@ -55,24 +55,25 @@ src/
 │   ├── htmlcss.js          # 90 HTML/CSS questions (30/30/30)
 │   └── index.js            # LANGUAGES config, DIFFICULTY_CONFIG, getRandomQuestions()
 ├── utils/
-│   ├── Home.jsx             # Welcome, stats, language/level picker, start quiz
-│   └── streak.js           # Streak calculation logic (pure function, easily testable)
+│   ├── streak.js           # Streak calculation logic (pure function, easily testable)
+│   └── streak.test.js
 ├── hooks/
-│   └── useTimer.js         # 20s countdown hook
+│   ├── useTimer.js         # 20s countdown hook
+│   └── useTimer.test.js
 ├── pages/
 │   ├── Home.jsx             # Welcome, stats, language/level picker, start quiz
-│   ├── Home.test.jsx             # Welcome, stats, language/level picker, start quiz
+│   ├── Home.test.jsx            
 │   ├── Quiz.jsx              # Live gameplay with timer & feedback
-│   ├── Quiz.test.jsx             # Welcome, stats, language/level picker, start quiz
+│   ├── Quiz.test.jsx             
 │   ├── Results.jsx           # Score, grade, correct/incorrect breakdown
-│   ├── Results.test.jsx             # Welcome, stats, language/level picker, start quiz
+│   ├── Results.test.jsx            
 │   ├── PerformanceBoard.jsx  # Language ranking + recent sessions
-│   ├── PerfromaneBoard.test.jsx             # Welcome, stats, language/level picker, start quiz
+│   ├── PerfromaneBoard.test.jsx            
 │   └── Profile.jsx           # Dashboard: name, scores, difficulty stats
-│   ├── Profile.test.jsx             # Welcome, stats, language/level picker, start quiz
+│   └── Profile.test.js          
 ├── components/
 │   └── Navbar.jsx
-│   ├── Navbar.test.jsx             # Welcome, stats, language/level picker, start quiz
+│   └── Navbar.test.jsx            
 ├── App.jsx
 └── App.css
 ```
@@ -94,3 +95,4 @@ This runs inside `finishSession()` in the context every time a quiz completes.
 
 **Vercel**: push to GitHub, import on vercel.com, build command `npm run build`, output `dist`.
 # Web_dev_II_projects
+├── Profile.test.jsx  
