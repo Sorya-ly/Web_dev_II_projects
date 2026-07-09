@@ -9,23 +9,23 @@ import Profile from "./pages/Profile";
 import "./App.css";
 
 export default function App() {
-  return (
-    <QuizProvider>
-      <BrowserRouter>
-        <div className="app-shell">
-          <Navbar />
-          <main className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/quiz/:language/:difficulty" element={<Quiz />} />
-              <Route path="/results" element={<Results />} />
-              <Route path="/performance" element={<PerformanceBoard />} />
-              <Route path="/profile" element={<Profile />} />
-            </Routes>
-          </main>
-        </div>
-      </BrowserRouter>
-    </QuizProvider>
-  );
+    return (
+        <QuizProvider>
+            <BrowserRouter>
+                <div className="app">
+                    <Navbar /> 
+                    <main className="content"> 
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/performance" element={<PerformanceBoard />} />
+                            <Route path="/quiz" element={<Quiz />} />
+                            <Route path="/results" element={<Results />} />
+                            <Route path="/profile" element={<Profile />} />
+                        </Routes>
+                    </main>
+                </div>
+            </BrowserRouter>
+        </QuizProvider>
+    )
 }
 

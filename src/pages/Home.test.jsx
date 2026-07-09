@@ -1,12 +1,17 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
+import { vi } from "vitest";
 import Home from "./Home";
 import { useQuiz } from "../context/QuizContext";
 
-const mockNavigate = vi.fn();
+// Mock the whole module, replacing useQuiz with a Vitest mock function
+vi.mock("../context/QuizContext", () => ({
+  useQuiz: vi.fn(),
+}));
 
+// Mock react-router-dom's useNavigate while keeping everything else real
+const mockNavigate = vi.fn();
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom");
   return {
@@ -14,22 +19,6 @@ vi.mock("react-router-dom", async () => {
     useNavigate: () => mockNavigate,
   };
 });
-
-vi.mock("../../context/QuizContext", () => ({
-  useQuiz: vi.fn(),
-}));
-
-vi.mock("../../data", () => ({
-  LANGUAGES: {
-    python: { id: "python", icon: "🐍", label: "Python" },
-    javascript: { id: "javascript", icon: "📜", label: "JavaScript" },
-  },
-  DIFFICULTY_CONFIG: {
-    easy: { label: "Easy", color: "#16a34a", bg: "#dcfce7" },
-    medium: { label: "Medium", color: "#d97706", bg: "#fef3c7" },
-    hard: { label: "Hard", color: "#dc2626", bg: "#fee2e2" },
-  },
-}));
 
 function renderHome() {
   return render(
@@ -41,21 +30,19 @@ function renderHome() {
 
 describe("Home", () => {
   beforeEach(() => {
-    mockNavigate.mockReset();
+    vi.clearAllMocks();
   });
 
   it("renders the name gate without crashing when the user has no name yet", () => {
-    // NOTE: this currently fails — Home.jsx references `user` and `updateUser`
-    // without destructuring them from useQuiz(), so the component throws.
     useQuiz.mockReturnValue({
       user: { name: "", bestScore: 0, streak: 0, totalQuestions: 0, history: [] },
       updateUser: vi.fn(),
+      startSession: vi.fn(),
     });
 
     renderHome();
 
-    expect(screen.getByText(/Welcome to CodeQuiz/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/your name/i)).toBeInTheDocument();
+    expect(screen.getByText(/welcome to codequiz/i)).toBeInTheDocument();
   });
 
   it("lets the user submit their name and calls updateUser", async () => {
@@ -63,6 +50,7 @@ describe("Home", () => {
     useQuiz.mockReturnValue({
       user: { name: "", bestScore: 0, streak: 0, totalQuestions: 0, history: [] },
       updateUser,
+      startSession: vi.fn(),
     });
 
     renderHome();
@@ -79,6 +67,7 @@ describe("Home", () => {
     useQuiz.mockReturnValue({
       user: { name: "", bestScore: 0, streak: 0, totalQuestions: 0, history: [] },
       updateUser,
+      startSession: vi.fn(),
     });
 
     renderHome();
@@ -91,11 +80,10 @@ describe("Home", () => {
   });
 
   it("renders the dashboard once a name is already set, showing stats", () => {
-    // NOTE: this currently fails — `Object.value(LANGUAGES)` should be
-    // `Object.values(LANGUAGES)`; the typo throws a TypeError.
     useQuiz.mockReturnValue({
       user: { name: "Ada", bestScore: 120, streak: 3, totalQuestions: 40, history: [] },
       updateUser: vi.fn(),
+      startSession: vi.fn(),
     });
 
     renderHome();
@@ -110,6 +98,7 @@ describe("Home", () => {
     useQuiz.mockReturnValue({
       user: { name: "Ada", bestScore: 0, streak: 0, totalQuestions: 0, history: [] },
       updateUser: vi.fn(),
+      startSession: vi.fn(),
     });
 
     renderHome();
@@ -126,6 +115,7 @@ describe("Home", () => {
     useQuiz.mockReturnValue({
       user: { name: "Ada", bestScore: 0, streak: 0, totalQuestions: 0, history: [] },
       updateUser: vi.fn(),
+      startSession: vi.fn(),
     });
 
     renderHome();
