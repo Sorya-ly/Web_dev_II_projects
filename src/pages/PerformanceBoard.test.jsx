@@ -21,9 +21,9 @@ vi.mock("../context/QuizContext", () => ({
 
 vi.mock("../data", () => ({
   LANGUAGES: {
-    python: { id: "python", icon: "🐍", label: "Python" },
-    javascript: { id: "javascript", icon: "📜", label: "JavaScript" },
-    rust: { id: "rust", icon: "🦀", label: "Rust" },
+    python: { id: "python", label: "Python" },
+    javascript: { id: "javascript", label: "JavaScript" },
+    rust: { id: "rust", label: "Rust" },
   },
 }));
 
