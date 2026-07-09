@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="nav-brand" onClick={() => navigate("/")}>
         <span className="brand-icon-small">{"</>"}</span>
-        <span>CodeQuiz</span>
+        <span>DevQuiz</span>
       </div>
       <div className="nav-links">
         <NavLink to="/profile" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
