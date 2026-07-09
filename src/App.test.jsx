@@ -61,7 +61,7 @@ describe("App", () => {
   });
 
   it("renders Quiz on /quiz", () => {
-    renderAt("/quiz");
+    renderAt("/quiz/:language/:difficulty");
 
     expect(screen.getByTestId("quiz-page")).toBeInTheDocument();
   });
