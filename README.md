@@ -92,8 +92,5 @@ This runs inside `finishSession()` in the context every time a quiz completes.
 
 ## Deployment
 
-**Netlify**: `npm run build`, drag `dist/` to netlify.com/drop, add `public/_redirects` with `/* /index.html 200`.
-
 **Vercel**: push to GitHub, import on vercel.com, build command `npm run build`, output `dist`.
-# Web_dev_II_projects
-├── Profile.test.jsx  
+
