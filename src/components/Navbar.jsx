@@ -26,7 +26,7 @@ export default function NavBar() {
                 </NavLink>
 
                 <NavLink to="/profile" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
-                    <span className="nav-icon"> </span>Profile
+                    <span className="nav-icon"> </span>My Profile
                 </NavLink>
             </div>
         </nav>

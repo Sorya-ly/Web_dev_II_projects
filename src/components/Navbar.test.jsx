@@ -1,7 +1,18 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
+
+const mockNavigate = vi.fn();
+
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
+    useNavigate: () => mockNavigate,
+  };
+});
 
 function renderNavbar(initialPath = "/") {
   return render(
@@ -22,18 +33,18 @@ describe("NavBar", () => {
   });
 
   it("renders the brand and all nav links", () => {
-    renderNavBar();
+    renderNavbar();
 
     expect(screen.getByText("DevQuiz")).toBeInTheDocument();
     expect(screen.getByText("Home (Nested)")).toBeInTheDocument();
     expect(screen.getByText("Quiz")).toBeInTheDocument();
     expect(screen.getByText("Result")).toBeInTheDocument();
     expect(screen.getByText("Performance Board")).toBeInTheDocument();
-    expect(screen.getByText("Profile")).toBeInTheDocument();
+    expect(screen.getByText("My Profile")).toBeInTheDocument();
   });
 
   it("navigates home when the brand is clicked", async () => {
-    renderNavBar();
+    renderNavbar();
     const user = userEvent.setup();
 
     await user.click(screen.getByText("DevQuiz"));
@@ -59,9 +70,13 @@ describe("NavBar", () => {
     expect(profileLink.className).not.toContain("active");
   });
 
-  it("clicking the brand navigates back to home", () => {
+  it("clicking the brand navigates back to home", async () => {
     renderNavbar("/profile");
-    fireEvent.click(screen.getByText("CodeQuiz"));
-    expect(screen.getByText("HOME PAGE")).toBeInTheDocument();
+    const user = userEvent.setup();
+
+    await user.click(screen.getByText("DevQuiz"));
+
+    expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 });
+
