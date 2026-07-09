@@ -18,7 +18,7 @@ export default function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/performance" element={<PerformanceBoard />} />
-                            <Route path="/quiz" element={<Quiz />} />
+                            <Route path="/quiz/:language/:difficulty" element={<Quiz />} />
                             <Route path="/results" element={<Results />} />
                             <Route path="/profile" element={<Profile />} />
                         </Routes>
