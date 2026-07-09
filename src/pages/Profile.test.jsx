@@ -21,8 +21,8 @@ vi.mock("../context/QuizContext", () => ({
 
 vi.mock("../data", () => ({
   LANGUAGES: {
-    python: { id: "python", icon: "🐍", label: "Python" },
-    javascript: { id: "javascript", icon: "📜", label: "JavaScript" },
+    python: { id: "python", label: "Python" },
+    javascript: { id: "javascript", label: "JavaScript" },
   },
   DIFFICULTY_CONFIG: {
     easy: { label: "Easy", color: "#16a34a", bg: "#dcfce7" },
