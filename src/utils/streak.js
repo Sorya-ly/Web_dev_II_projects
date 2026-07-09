@@ -7,7 +7,12 @@
 
 function toDateOnly(dateStr) {
   const d = new Date(dateStr);
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  // Use UTC getters, not local getters. The timestamps we receive are UTC
+  // ISO strings; reading them back with local getters (getFullYear/getMonth/
+  // getDate) shifts the "calendar day" depending on the machine's timezone,
+  // which caused same-day timestamps near midnight UTC to be treated as
+  // different days (or vice versa) on non-UTC machines.
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
 }
 
 function daysBetween(dateA, dateB) {

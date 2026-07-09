@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
 import { DIFFICULTY_CONFIG } from "../data";
 import { computeStreak } from "../utils/streak";
 
@@ -34,7 +34,16 @@ export function QuizProvider({ children }) {
   const [user, setUser] = useState(stored?.user || defaultUser);
   const [session, setSession] = useState(null);
 
+  // When true, the next user-change effect skips writing to localStorage.
+  // Needed so resetAllData's removeItem() isn't immediately undone by the
+  // effect firing after setUser(defaultUser) re-saves the default user.
+  const skipNextSave = useRef(false);
+
   useEffect(() => {
+    if (skipNextSave.current) {
+      skipNextSave.current = false;
+      return;
+    }
     saveToStorage({ user });
   }, [user]);
 
@@ -108,6 +117,7 @@ export function QuizProvider({ children }) {
   const clearSession = useCallback(() => setSession(null), []);
 
   const resetAllData = useCallback(() => {
+    skipNextSave.current = true;
     setUser(defaultUser);
     setSession(null);
     localStorage.removeItem(STORAGE_KEY);
