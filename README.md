@@ -68,13 +68,14 @@ src/
 │   ├── Results.jsx           # Score, grade, correct/incorrect breakdown
 │   ├── Results.test.jsx            
 │   ├── PerformanceBoard.jsx  # Language ranking + recent sessions
-│   ├── PerfromaneBoard.test.jsx            
-│   └── Profile.jsx           # Dashboard: name, scores, difficulty stats
+│   ├── PerformaneBoard.test.jsx            
+│   ├── Profile.jsx           # Dashboard: name, scores, difficulty stats
 │   └── Profile.test.js          
 ├── components/
-│   └── Navbar.jsx
+│   ├── Navbar.jsx
 │   └── Navbar.test.jsx            
 ├── App.jsx
+├── App.test.jsx
 └── App.css
 ```
 
