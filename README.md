@@ -4,7 +4,7 @@ A React quiz application testing knowledge across JavaScript, Python, Java, and 
 
 ## Live Demo
 
-> Deploy to Netlify or Vercel and paste your URL here.
+> Deploy to Vercel and paste your URL here.
 
 ## Features
 
@@ -35,6 +35,12 @@ A React quiz application testing knowledge across JavaScript, Python, Java, and 
 npm install
 npm run dev
 ```
+## Testing 
+```bash
+npm test #Total 27
+npm test FILE_NAME #Example: npm test useTimer
+```
+
 
 ## Project Structure
 
