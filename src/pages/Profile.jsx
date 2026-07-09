@@ -47,7 +47,7 @@ export default function Profile() {
         ) : (
           <div className="profile-name-row">
             <h2 className="profile-name">{user.name || "Anonymous"}</h2>
-            <button className="btn btn-ghost btn-small" onClick={() => setEditing(true)}>✏️ Edit</button>
+            <button className="btn btn-ghost btn-small" onClick={() => setEditing(true)}>Edit</button>
           </div>
         )}
         <p className="profile-tagline">

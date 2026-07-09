@@ -4,10 +4,10 @@ import { java } from "./java";
 import { htmlcss } from "./htmlcss";
 
 export const LANGUAGES = {
-  javascript: { id: "javascript", label: "JavaScript", icon: "🟨", data: javascript },
-  python: { id: "python", label: "Python", icon: "🐍", data: python },
-  java: { id: "java", label: "Java", icon: "☕", data: java },
-  htmlcss: { id: "htmlcss", label: "HTML & CSS", icon: "🌐", data: htmlcss },
+  javascript: { id: "javascript", label: "JavaScript", data: javascript },
+  python: { id: "python", label: "Python", data: python },
+  java: { id: "java", label: "Java", data: java },
+  htmlcss: { id: "htmlcss", label: "HTML & CSS", data: htmlcss },
 };
 
 export const DIFFICULTY_CONFIG = {
