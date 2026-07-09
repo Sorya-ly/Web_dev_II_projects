@@ -55,17 +55,24 @@ src/
 │   ├── htmlcss.js          # 90 HTML/CSS questions (30/30/30)
 │   └── index.js            # LANGUAGES config, DIFFICULTY_CONFIG, getRandomQuestions()
 ├── utils/
+│   ├── Home.jsx             # Welcome, stats, language/level picker, start quiz
 │   └── streak.js           # Streak calculation logic (pure function, easily testable)
 ├── hooks/
 │   └── useTimer.js         # 20s countdown hook
 ├── pages/
 │   ├── Home.jsx             # Welcome, stats, language/level picker, start quiz
+│   ├── Home.test.jsx             # Welcome, stats, language/level picker, start quiz
 │   ├── Quiz.jsx              # Live gameplay with timer & feedback
+│   ├── Quiz.test.jsx             # Welcome, stats, language/level picker, start quiz
 │   ├── Results.jsx           # Score, grade, correct/incorrect breakdown
+│   ├── Results.test.jsx             # Welcome, stats, language/level picker, start quiz
 │   ├── PerformanceBoard.jsx  # Language ranking + recent sessions
+│   ├── PerfromaneBoard.test.jsx             # Welcome, stats, language/level picker, start quiz
 │   └── Profile.jsx           # Dashboard: name, scores, difficulty stats
+│   ├── Profile.test.jsx             # Welcome, stats, language/level picker, start quiz
 ├── components/
 │   └── Navbar.jsx
+│   ├── Navbar.test.jsx             # Welcome, stats, language/level picker, start quiz
 ├── App.jsx
 └── App.css
 ```

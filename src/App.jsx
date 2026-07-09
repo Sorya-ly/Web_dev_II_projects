@@ -10,23 +10,21 @@ import "./App.css";
 
 export default function App() {
     return (
-        <div className="app">
-            <Navbar /> 
-
-            <main className="content"> 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-
-                    <Route path="/performance" element={<PerformanceBoard />} />
-
-                    <Route path="/quiz" element={<Quiz />} />
-
-                    <Route path="/result" element={<Results />} />
-
-                    <Route path="/profile" element={<Profile />} />
-                </Routes>
-            </main>
-
-        </div>
+        <QuizProvider>
+            <BrowserRouter>
+                <div className="app">
+                    <Navbar /> 
+                    <main className="content"> 
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/performance" element={<PerformanceBoard />} />
+                            <Route path="/quiz" element={<Quiz />} />
+                            <Route path="/results" element={<Results />} />
+                            <Route path="/profile" element={<Profile />} />
+                        </Routes>
+                    </main>
+                </div>
+            </BrowserRouter>
+        </QuizProvider>
     )
 }
