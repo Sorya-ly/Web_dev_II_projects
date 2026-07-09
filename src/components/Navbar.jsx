@@ -8,7 +8,7 @@ export default function NavBar () {
 
             <div className="nav-brand" onClick={() => navigate("/")}>
                 <span className="brand-icon-small">{"</>"}</span>
-                <span>CodeQuiz</span>
+                <span>DevQuiz</span>
             </div>
 
             <div className="nav-links">
