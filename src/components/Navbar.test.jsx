@@ -30,7 +30,7 @@ describe("NavBar", () => {
   it("renders the brand and all nav links", () => {
     renderNavBar();
 
-    expect(screen.getByText("CodeQuiz")).toBeInTheDocument();
+    expect(screen.getByText("DevQuiz")).toBeInTheDocument();
     expect(screen.getByText("Home (Nested)")).toBeInTheDocument();
     expect(screen.getByText("Quiz")).toBeInTheDocument();
     expect(screen.getByText("Result")).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe("NavBar", () => {
     renderNavBar();
     const user = userEvent.setup();
 
-    await user.click(screen.getByText("CodeQuiz"));
+    await user.click(screen.getByText("DevQuiz"));
 
     expect(mockNavigate).toHaveBeenCalledWith("/");
   });
