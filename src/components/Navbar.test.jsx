@@ -16,29 +16,18 @@ function renderNavbar(initialPath = "/") {
   );
 }
 
-describe("NavBar", () => {
-  beforeEach(() => {
-    mockNavigate.mockReset();
-  });
-
-  it("renders the brand and all nav links", () => {
-    renderNavBar();
-
+describe("Navbar", () => {
+  it("renders the brand and both nav links", () => {
+    renderNavbar();
     expect(screen.getByText("DevQuiz")).toBeInTheDocument();
-    expect(screen.getByText("Home (Nested)")).toBeInTheDocument();
-    expect(screen.getByText("Quiz")).toBeInTheDocument();
-    expect(screen.getByText("Result")).toBeInTheDocument();
-    expect(screen.getByText("Performance Board")).toBeInTheDocument();
-    expect(screen.getByText("Profile")).toBeInTheDocument();
+    expect(screen.getByText(/My Profile/i)).toBeInTheDocument();
+    expect(screen.getByText(/Performance Board/i)).toBeInTheDocument();
   });
 
-  it("navigates home when the brand is clicked", async () => {
-    renderNavBar();
-    const user = userEvent.setup();
-
-    await user.click(screen.getByText("DevQuiz"));
-
-    expect(mockNavigate).toHaveBeenCalledWith("/");
+  it("the Profile link points to a route that actually exists (/profile)", () => {
+    renderNavbar();
+    fireEvent.click(screen.getByText(/My Profile/i));
+    expect(screen.getByText("PROFILE PAGE")).toBeInTheDocument();
   });
 
   it("the Performance Board link points to a route that actually exists (/performance)", () => {
@@ -61,7 +50,7 @@ describe("NavBar", () => {
 
   it("clicking the brand navigates back to home", () => {
     renderNavbar("/profile");
-    fireEvent.click(screen.getByText("CodeQuiz"));
+    fireEvent.click(screen.getByText("DevQuiz"));
     expect(screen.getByText("HOME PAGE")).toBeInTheDocument();
   });
 });
