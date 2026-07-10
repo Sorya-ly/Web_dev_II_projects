@@ -91,6 +91,6 @@ src/
 This runs inside `finishSession()` in the context every time a quiz completes.
 
 ## Deployment
+https://webdeviiprojects-main-hfke22121-vichra.vercel.app?_vercel_share=HQpvK6QGVMz0q6vlScIIHo1DLI0nUxIE
 
-**Vercel**: push to GitHub, import on vercel.com, build command `npm run build`, output `dist`.
 
