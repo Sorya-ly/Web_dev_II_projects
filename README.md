@@ -4,7 +4,8 @@ A React quiz application testing knowledge across JavaScript, Python, Java, and 
 
 ## Live Demo
 
-> Deploy to Vercel and paste your URL here.
+> Deploy to Vercel 
+ https://webdeviiprojects-main-hfke22121-vichra.vercel.app?_vercel_share=HQpvK6QGVMz0q6vlScIIHo1DLI0nUxIE
 
 ## Features
 
@@ -37,7 +38,7 @@ npm run dev
 ```
 ## Testing 
 ```bash
-npm test 
+npm test # Tests: 78 passed
 npm test FILE_NAME #Example: npm test useTimer
 ```
 
@@ -91,6 +92,6 @@ src/
 This runs inside `finishSession()` in the context every time a quiz completes.
 
 ## Deployment
-https://webdeviiprojects-main-hfke22121-vichra.vercel.app?_vercel_share=HQpvK6QGVMz0q6vlScIIHo1DLI0nUxIE
+**Vercel**: push to GitHub, import on vercel.com, build command `npm run build`, output `dist`.
 
 
